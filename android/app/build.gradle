@@ -108,8 +108,24 @@ android {
             signingConfig signingConfigs.release
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            // 添加下面这行以禁用crunch
+            crunchPngs false
         }
     }
+//     productFlavors{
+//         online{
+//             manifestPlaceholders = [
+//                 MSITE_HOSTNAME  : "m.sephora.cn",
+//             ]
+
+//         }
+
+//         stage{
+//             manifestPlaceholders = [
+//                 MSITE_HOSTNAME  : "stagem.sephora.cn",
+//             ]
+//         }
+//     }
 }
 
 dependencies {

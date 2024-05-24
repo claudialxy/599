@@ -11,6 +11,8 @@ import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
 import com.facebook.react.defaults.DefaultReactNativeHost
 import com.facebook.react.flipper.ReactNativeFlipper
 import com.facebook.soloader.SoLoader
+import cn.reactnative.modules.update.UpdateContext;
+import cn.reactnative.modules.update.UpdatePackage;
 
 class MainApplication : Application(), ReactApplication {
 
@@ -28,6 +30,11 @@ class MainApplication : Application(), ReactApplication {
 
         override val isNewArchEnabled: Boolean = BuildConfig.IS_NEW_ARCHITECTURE_ENABLED
         override val isHermesEnabled: Boolean = BuildConfig.IS_HERMES_ENABLED
+
+         // ↓↓↓将下面这一段添加到 DefaultReactNativeHost 内部！
+        override fun getJSBundleFile(): String? {
+          return UpdateContext.getBundleUrl(this@MainApplication)
+        }
       }
 
   override val reactHost: ReactHost
