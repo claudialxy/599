@@ -12,6 +12,7 @@ import {
   View,
 } from 'react-native';
 import Swiper from 'react-native-swiper';
+import Splash from '../../util/Splash.tsx';
 
 const Data = [
   { title: '新品上市', data: ['aaa', 'bbb', 'ccc'], id: '111' },
@@ -28,6 +29,10 @@ const Data = [
 const Item = ({ title }) => <Text style={styles.nav}>{title}</Text>;
 
 export class index extends Component {
+
+  componentDidMount(){
+    Splash.hideSplash()
+  }
 
 
   render() {

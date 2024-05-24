@@ -1,6 +1,8 @@
 package com.firstrndemo
 
 import android.app.Application
+import android.util.Log
+//import cn.jiguang.plugins.push.JPushModule
 import com.facebook.react.PackageList
 import com.facebook.react.ReactApplication
 import com.facebook.react.ReactHost
@@ -13,6 +15,7 @@ import com.facebook.react.flipper.ReactNativeFlipper
 import com.facebook.soloader.SoLoader
 import cn.reactnative.modules.update.UpdateContext;
 import cn.reactnative.modules.update.UpdatePackage;
+import com.facebook.common.logging.FLog
 
 class MainApplication : Application(), ReactApplication {
 
@@ -22,6 +25,7 @@ class MainApplication : Application(), ReactApplication {
             PackageList(this).packages.apply {
               // Packages that cannot be autolinked yet can be added manually here, for example:
               // add(MyReactNativePackage())
+                add(MyAppPackage())
             }
 
         override fun getJSMainModuleName(): String = "index"
@@ -48,5 +52,18 @@ class MainApplication : Application(), ReactApplication {
       load()
     }
     ReactNativeFlipper.initializeFlipper(this, reactNativeHost.reactInstanceManager)
+      //调用此方法：点击通知让应用从后台切到前台
+//      JPushModule.registerActivityLifecycle(this);
   }
+
+    fun initReactNative() {
+        val reactNativeHost = reactNativeHost
+        Log.e("JS-->原生====","MainApplication====initReactNative======"+reactNativeHost.hasInstance())
+        if (!reactNativeHost.hasInstance()) {
+            // 加载 ReactNative
+            SoLoader.init(this,  /* native exopackage */false)
+            FLog.setMinimumLoggingLevel(FLog.INFO)
+            Log.e("JS-->原生====","MainApplication====hasInstance======")
+        }
+    }
 }

@@ -1,5 +1,3 @@
-/* eslint-disable prettier/prettier */
-// eslint-disable-next-line prettier/prettier
 import { Alert } from 'react-native';
 import { ARTICLE_LIST, BASE_HOST } from '../../util/path';
 

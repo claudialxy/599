@@ -1,4 +1,4 @@
-package com.myproject;
+package com.firstrndemo;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -26,7 +27,7 @@ public class PrivacyFragment extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-
+        Log.e("JS-->原生====","PrivacyFragment====onCreateDialog");
         Dialog dialog =  super.onCreateDialog(savedInstanceState);
         dialog.setCanceledOnTouchOutside(false);
         dialog.setCancelable(false);
@@ -47,8 +48,8 @@ public class PrivacyFragment extends DialogFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        TextView exitButton = view.findViewById(R.id.exit);
-        TextView agreeButton = view.findViewById(R.id.agree);
+        Button exitButton = view.findViewById(R.id.exit);
+        Button agreeButton = view.findViewById(R.id.agree);
         exitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,4 +1,4 @@
-package com.myproject;
+package com.firstrndemo;
 
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
