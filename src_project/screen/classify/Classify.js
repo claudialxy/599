@@ -6,7 +6,7 @@ import LeftFlatList from './LeftFlatList';
 import RightSectionList from './RightSectionList';
 import linkageData from './linkageData.json';
 
-export default class index extends Component {
+export default class Classify extends Component {
   render() {
     return (
       <View style={{flexDirection:'row'}}>

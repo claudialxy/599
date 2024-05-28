@@ -10,7 +10,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import { Pushy, PushyProvider } from 'react-native-update';
-import Index from './src_project';
+import MainTab from './src_project/route/NavigatorScreen';
 import _updateConfig from './update.json';
 const { appKey } = _updateConfig.android;
 
@@ -21,6 +21,30 @@ const pushyClient = new Pushy({
   // 但即便打开此选项，也仅能检查、下载热更，并不能实际应用热更。实际应用热更必须在release包中进行。
   debug: true,
 });
+
+/**
+ * @description: 配置导航路由目录, 实现 Deeplink 跳转
+ */
+const LinkingConfig = {
+  prefixes: ['myschemes://', 'https://www.aaa.com'],
+  config: {
+    screens: {
+      initialRouteName: 'BottomTabsNavigator',
+      BottomTabsNavigator: {
+        initialRouteName: 'Home',
+        screens: {
+          Home: 'home',
+          Classify: 'classify',
+          Find: 'find',
+          Shopcart: 'shopcart',
+          Mine :'mine'
+        },
+        path: '',
+      },
+      Detail: 'detail',
+    },
+  },
+}
 
 
 function App(): React.JSX.Element {
@@ -33,8 +57,8 @@ function App(): React.JSX.Element {
 
   return (
     <PushyProvider client={pushyClient}>
-    <NavigationContainer>
-      <Index/>
+    <NavigationContainer linking={LinkingConfig}>
+      <MainTab/>
     </NavigationContainer>
     </PushyProvider>
   );

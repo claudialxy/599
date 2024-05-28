@@ -2,13 +2,13 @@
 /* eslint-disable react/no-string-refs */
 import React, { Component } from 'react';
 import {
-    DeviceEventEmitter,
-    Dimensions,
-    FlatList,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  DeviceEventEmitter,
+  Dimensions,
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 var {width, height} = Dimensions.get('window');
 var dataAry = [];
@@ -70,7 +70,7 @@ export default class LeftFlatList extends Component {
     }
   };
 
-  componentWillUnmount() {
+  UNSAFE_componentWillMount() {
     // 移除监听
     this.listener.remove();
   }

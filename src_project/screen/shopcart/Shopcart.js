@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Alert, Dimensions, FlatList, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { getArticleList } from '../views/api';
 
-export default class index extends Component {
+export default class Shopcart extends Component {
 
   getData = () => {
     getArticleList()
@@ -52,7 +52,9 @@ export default class index extends Component {
     return (
       <TouchableOpacity
         key={'index' + item.type}
-        onPress={() => { Alert.alert('点击'); }}
+        onPress={() => { 
+          this.props.navigation.navigate('Detail')
+        }}
         activeOpacity={1}>
         <View style={styles.flatItem}>
           <Image style={styles.itemImage} source={this.state.image ? { uri: this.state.image } : require('../image/soogif.gif')} />

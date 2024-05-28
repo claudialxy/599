@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Alert, Button, Dimensions, StyleSheet, Text, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-export default class extends Component {
+export default class Find extends Component {
   state = {
     num:100,
     show:false,

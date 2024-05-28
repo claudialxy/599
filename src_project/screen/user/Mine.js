@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Alert, Image, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-export default class index extends Component {
+export default class Mine extends Component {
   render() {
     return (
       // https://stagestatic.sephora.cn/EllaIconGif31712718275019.gif?hash=FmPfqhGABMqfuP-57mbp8SWv_E75 
