@@ -9,6 +9,7 @@
 // import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
+import { StatusBar } from 'react-native';
 import { Pushy, PushyProvider } from 'react-native-update';
 import MainTab from './src_project/route/NavigatorScreen';
 import _updateConfig from './update.json';
@@ -58,6 +59,7 @@ function App(): React.JSX.Element {
   return (
     <PushyProvider client={pushyClient}>
     <NavigationContainer linking={LinkingConfig}>
+    <StatusBar backgroundColor={'transparent'} translucent barStyle={'light-content'}></StatusBar>
       <MainTab/>
     </NavigationContainer>
     </PushyProvider>

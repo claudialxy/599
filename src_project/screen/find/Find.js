@@ -1,7 +1,8 @@
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
-import { Alert, Button, Dimensions, StyleSheet, Text, View } from 'react-native';
+import { Alert, Button, Dimensions, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import CountDown from '../../util/CountDowReact';
 
 export default class Find extends Component {
   state = {
@@ -34,10 +35,26 @@ export default class Find extends Component {
     console.log('2 render 视图渲染');
     return (
       <View  style={[styles.linearView]}>
+      <StatusBar barStyle={'dark-content'}></StatusBar>
+       
+      
         <LinearGradient start = {{ x:0,y:0}} end = {{x:1,y:0}} colors = {['#ddd','#333']} style={[styles.linearGItem]}>
         <Text> 当前日期</Text>
         <Text onPress={this.handlePress}> {this.state.num}</Text>
         </LinearGradient>
+
+        <LinearGradient start = {{ x:0,y:0}} end = {{x:1,y:0}} colors = {['#ddd','#333']} style={[styles.linearGItem]}>
+        <CountDown></CountDown>
+        </LinearGradient>
+
+        <LinearGradient start = {{ x:0,y:0}} end = {{x:1,y:0}} colors = {['#ddd','#333']} style={[styles.linearGItem]}>
+        <TouchableOpacity onPress={()=>{this.props.navigation.navigate('ShoppingCart')}}>
+        <Text > 打开购物车</Text>
+        </TouchableOpacity>
+        
+        </LinearGradient>
+      
+
         <Button
           title="点它"
           onPress={() => {
@@ -47,6 +64,7 @@ export default class Find extends Component {
 
         <Text onPress={this.handleToggle}>切换显示</Text>
         {this.state.show ? <Btn> </Btn> : <></> }
+        
       </View>
     );
   }
@@ -69,6 +87,7 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     flexWrap:'wrap',
     marginHorizontal:10,
+    margin :25,
 
   },
   linearGItem:{
@@ -80,5 +99,8 @@ const styles = StyleSheet.create({
     width:(Dimensions.get('window').width) - 20,
     height:50,
   },
+  linearGItemCountDown:{
+    marginTop:20,
+  }
 
 });

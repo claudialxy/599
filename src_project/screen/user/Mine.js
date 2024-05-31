@@ -51,7 +51,7 @@ export default class Mine extends Component {
 }
 
 const styles = StyleSheet.create({
-  safeView: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+  safeView: { flex: 1, justifyContent: 'center', alignItems: 'center' ,marginTop:25},
   listItem: {
     flexDirection: 'row',
     justifyContent: 'space-between',

@@ -1,7 +1,7 @@
-import { NativeModules } from 'react-native';
+import { NativeModules } from 'react-native'
 
-const { SplashModule } = NativeModules;
+const { SplashModule } = NativeModules
 interface SplashInterface {
-  hideSplash(): void;
+  hideSplash(): void
 }
-export default SplashModule as SplashInterface;
+export default SplashModule as SplashInterface

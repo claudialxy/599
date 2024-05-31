@@ -7,7 +7,9 @@ import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.fabricEnable
 import com.facebook.react.defaults.DefaultReactActivityDelegate
 import android.os.Bundle;
 import android.util.Log
+import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
 
 class MainActivity : ReactActivity() ,PrivacyFragment.PrivacyListener{
 
@@ -30,8 +32,13 @@ class MainActivity : ReactActivity() ,PrivacyFragment.PrivacyListener{
 
  override fun onCreate(savedInstanceState: Bundle?) {
      setTheme(R.style.AppTheme)
-    super.onCreate(null)
+     super.onCreate(null)
+//     var decorView: View   = window.decorView
+//     var option :Int =  View.SYSTEM_UI_FLAG_HIDE_NAVIGATION ; View.SYSTEM_UI_FLAG_FULLSCREEN
+//     decorView.systemUiVisibility = option
      showSplash(savedInstanceState)
+     var actionBar: ActionBar?  = supportActionBar
+     actionBar?.hide()
      Log.e("JS-->原生====","MainActivity====onCreate===="+checkPrivacyAgreement())
      if(!checkPrivacyAgreement()){
          showPrivacyAlert(savedInstanceState)

@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
-import { Dimensions, ImageBackground, Platform, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Dimensions, ImageBackground, Platform, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import LinearGradient from 'react-native-linear-gradient';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -8,7 +8,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 // MyCustomComponent = Animatable.createAnimatableComponent(MyCustomComponent);
 // <ImageBackground source={require('../image/image2.jpg')} style={[styles.bgimage]}> textInComponent </ImageBackground>
 
-export default class login extends Component {
+export default class Login extends Component {
   constructor() {
     super();
 
@@ -57,9 +57,23 @@ export default class login extends Component {
 
   render() {
     return (
-      <View style={[styles.content]}>
+      <SafeAreaView style={[styles.content]}>
         <ImageBackground source={{ uri: 'http://img1.baidu.com/it/u=701133623,3750671343&fm=253&app=138&f=JPEG?w=800&h=1280' }} style={[styles.bgimage]}>
+          
+          <View >
+          <TouchableOpacity
+          onPress={() => {
+            this.props.navigation.goBack();
+          }}>
+          <Ionicons
+            style={{ marginLeft: 5 ,color:'#fff'}}
+            name="chevron-back-outline"
+            size={30}
+          />
           <Text style={[styles.welcom]}>WELCOM</Text>
+        </TouchableOpacity>
+          </View>
+          
           <Animatable.View animation="fadeInUpBig" style={[styles.footer]}>
             <ScrollView>
               <View style={[styles.action]}>
@@ -113,10 +127,10 @@ export default class login extends Component {
 
               <TouchableOpacity onPress={this.updataSecureTextEntry} activeOpacity={1}>
                 <View flexDirection={'row'} style={[styles.yinsi]}>
-                {this.state.secureTextEntry ?
-                  <Ionicons name={'checkmark-circle-outline'} size={15}/>
-                : <Ionicons name={'checkmark-circle'} size={15} color={'#08d4c4'}/>
-              }
+                  {this.state.secureTextEntry ?
+                    <Ionicons name={'checkmark-circle-outline'} size={15} />
+                    : <Ionicons name={'checkmark-circle'} size={15} color={'#08d4c4'} />
+                  }
                   <Text style={[styles.forgetPassword]}>我已阅读并同意《欧瑞莲隐私政策》</Text>
                 </View>
               </TouchableOpacity>
@@ -138,7 +152,7 @@ export default class login extends Component {
             </ScrollView>
           </Animatable.View>
         </ImageBackground>
-      </View>
+      </SafeAreaView>
     );
   }
 }

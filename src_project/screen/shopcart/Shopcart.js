@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
-import { Alert, Dimensions, FlatList, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Alert, Dimensions, FlatList, Image, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { getArticleList } from '../views/api';
 
 export default class Shopcart extends Component {
@@ -77,7 +77,8 @@ export default class Shopcart extends Component {
 
   render() {
     return (
-      <SafeAreaView>
+      <SafeAreaView style={{marginTop:25}}>
+      <StatusBar barStyle={'dark-content'}/>
         <FlatList
           data={this.state.myList}
           renderItem={this.indicesItem}
