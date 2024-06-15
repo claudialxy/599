@@ -58,12 +58,10 @@ class MainApplication : Application(), ReactApplication {
 
     fun initReactNative() {
         val reactNativeHost = reactNativeHost
-        Log.e("JS-->原生====","MainApplication====initReactNative======"+reactNativeHost.hasInstance())
         if (!reactNativeHost.hasInstance()) {
             // 加载 ReactNative
             SoLoader.init(this,  /* native exopackage */false)
             FLog.setMinimumLoggingLevel(FLog.INFO)
-            Log.e("JS-->原生====","MainApplication====hasInstance======")
         }
     }
 }

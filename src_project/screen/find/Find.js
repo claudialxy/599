@@ -51,7 +51,18 @@ export default class Find extends Component {
         <TouchableOpacity onPress={()=>{this.props.navigation.navigate('ShoppingCart')}}>
         <Text > 打开购物车</Text>
         </TouchableOpacity>
-        
+        </LinearGradient>
+
+        <LinearGradient start = {{ x:0,y:0}} end = {{x:1,y:0}} colors = {['#ddd','#333']} style={[styles.linearGItem]}>
+        <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Order')}}>
+        <Text > 打开订单</Text>
+        </TouchableOpacity>
+        </LinearGradient>
+
+        <LinearGradient start = {{ x:0,y:0}} end = {{x:1,y:0}} colors = {['#ddd','#333']} style={[styles.linearGItem]}>
+        <TouchableOpacity onPress={()=>{this.props.navigation.navigate('BasicType')}}>
+        <Text > 基本类型</Text>
+        </TouchableOpacity>
         </LinearGradient>
       
 

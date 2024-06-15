@@ -36,23 +36,19 @@ class MainActivity : ReactActivity() ,PrivacyFragment.PrivacyListener{
 //     var decorView: View   = window.decorView
 //     var option :Int =  View.SYSTEM_UI_FLAG_HIDE_NAVIGATION ; View.SYSTEM_UI_FLAG_FULLSCREEN
 //     decorView.systemUiVisibility = option
-     showSplash(savedInstanceState)
+//     showSplash(savedInstanceState)
      var actionBar: ActionBar?  = supportActionBar
      actionBar?.hide()
-     Log.e("JS-->原生====","MainActivity====onCreate===="+checkPrivacyAgreement())
      if(!checkPrivacyAgreement()){
          showPrivacyAlert(savedInstanceState)
      }
   }
 
     private fun showPrivacyAlert(savedInstanceState: Bundle?) {
-        Log.e("JS-->原生====","MainActivity====showPrivacyAlert====111")
         var tag: String?  = savedInstanceState?.getString("privacy_tag")
-        Log.e("JS-->原生====","MainActivity====showPrivacyAlert====tag===="+tag)
         if(tag!=null){
             privacyFragment = supportFragmentManager.findFragmentByTag(tag) as PrivacyFragment
         }
-        Log.e("JS-->原生====","MainActivity====showPrivacyAlert====222===="+privacyFragment+"===="+supportFragmentManager)
         if(privacyFragment==null){
             privacyFragment = PrivacyFragment()
             privacyFragment?.show(supportFragmentManager,"privacy_tag")

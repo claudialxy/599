@@ -14,7 +14,6 @@ public class SplashFragment extends DialogFragment {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         setStyle(STYLE_NO_FRAME,R.style.SplashTheme);
         setCancelable(false);
-        Log.e("JS-->原生====","SplashFragment====onCreateDialog");
         return super.onCreateDialog(savedInstanceState);
     }
 }

@@ -27,7 +27,6 @@ public class PrivacyFragment extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        Log.e("JS-->原生====","PrivacyFragment====onCreateDialog");
         Dialog dialog =  super.onCreateDialog(savedInstanceState);
         dialog.setCanceledOnTouchOutside(false);
         dialog.setCancelable(false);
